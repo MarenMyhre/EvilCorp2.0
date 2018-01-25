@@ -3,9 +3,9 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("Hello")
-	fmt.Println("Maren Myhre")
-	fmt.Println("Julie Hodne Gundersen ")
+	fmt.Println("Hello there")
+	fmt.Println("Sophie Kleiva")
 	fmt.Println("Katrine Skomedal")
+
 
 }
