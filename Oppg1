@@ -5,3 +5,11 @@ Binære tall	    Hexadesimaltall	     Desimaltall
 11111111111111111  	0xFFFF	             65535
 10001011110001010 	0x1178A	             71562
 
+Oppgave A
+Beskriv kort metode for å gå fra binære tall til hexadesimale tall og motsatt. Beskriv kort metoden for å gå fra binære tall til 
+desimaltall og motsatt.
+
+Vår fremgangsmåte for å gå fra binæretall til hexadesimaletall og motsatt, var å sette opp en tallrekke med 1, 2, 4 og 8. Så gruperte vi 
+binærtallet i fire, fra høyre til venstre, og stilte hver gruppe under tallrekken. Vi plusset så sammen alle tallene over 1-erene, og 
+ignorerte det som stod over 0. Eksempel: 110111101010. Forste gruppe (1010) blir til A, neste (1110) blir til E, mens site (1101) blir 
+til D.
