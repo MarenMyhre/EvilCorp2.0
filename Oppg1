@@ -1,6 +1,6 @@
 Binære tall	    Hexadesimaltall	     Desimaltall
 1101	              0xD	                 13
-110111101010	      0xCEA	               3562
+110111101010	      0xDEA	               3562
 1010111100110100	  0xAF34	             44852
 11111111111111111  	0xFFFF	             65535
 10001011110001010 	0x1178A	             71562
@@ -12,4 +12,4 @@ desimaltall og motsatt.
 Vår fremgangsmåte for å gå fra binæretall til hexadesimaletall og motsatt, var å sette opp en tallrekke med 1, 2, 4 og 8. Så gruperte vi 
 binærtallet i fire, fra høyre til venstre, og stilte hver gruppe under tallrekken. Vi plusset så sammen alle tallene over 1-erene, og 
 ignorerte det som stod over 0. Eksempel: 110111101010. Forste gruppe (1010) blir til A, neste (1110) blir til E, mens site (1101) blir 
-til D.
+til D. Altså er 110111101010 i hexadesimale tall 0xDEA. 
