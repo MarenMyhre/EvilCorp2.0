@@ -13,3 +13,9 @@ Vår fremgangsmåte for å gå fra binæretall til hexadesimaletall og motsatt, 
 binærtallet i fire, fra høyre til venstre, og stilte hver gruppe under tallrekken. Vi plusset så sammen alle tallene over 1-erene, og 
 ignorerte det som stod over 0. Eksempel: 110111101010. Forste gruppe (1010) blir til A, neste (1110) blir til E, mens site (1101) blir 
 til D. Altså er 110111101010 i hexadesimale tall 0xDEA. 
+
+Metoden vi bruker for å gå fra binære tall til desimaltall er veldig lik metoden til vi brukte til å omregne til hexadesimal. Det vi 
+gjorde var å forlenge tallrekken videre med å doble desimaltallene, eks. 16,32,64... Vi satte hele binæretall under desimalene og 
+plusset alle enerene og ignorerte nullene. Svaret vi fikk var desimaltallet.
+F.eks: 110111101010 blir til 3562.
+
