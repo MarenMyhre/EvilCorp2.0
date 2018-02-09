@@ -21,3 +21,8 @@ F.eks: 110111101010 blir til 3562.
 
 Oppgave B
 Beskriv kort metoden for å gå fra hexadesimale tall til desimaltall og motsatt.
+
+Heksadesimaltall er et system basert på nummeret 16. Så for å gå fra heksadesimaltall til et desimaltall så må hvert heksadesimal 
+bli ganget med 16^x avhenging av hvilken "plass" tallet står på. La ogg ta et eksempel. Vi gjør om 7DF. Da begynner vi med F. Siden den er
+helt til høgre tar vi Fx16^0, som er 15x1, som blir 15. Videre tar vi Dx16^1, som er 13x16, som blir 208. Siste er da 7x16^2, som er 7x256, 
+som blir 1792. Til slutt plusser vi alle sammen, 15 + 208 + 1792 = 2015.
