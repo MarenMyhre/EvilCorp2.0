@@ -19,3 +19,5 @@ gjorde var å forlenge tallrekken videre med å doble desimaltallene, eks. 16,32
 plusset alle enerene og ignorerte nullene. Svaret vi fikk var desimaltallet.
 F.eks: 110111101010 blir til 3562.
 
+Oppgave B
+Beskriv kort metoden for å gå fra hexadesimale tall til desimaltall og motsatt.
