@@ -1,4 +1,4 @@
-package main
+package ascii
 
 func IterateOverASCIIStringLiteral(sl string) {
 	// Kode for Oppgave 2a
