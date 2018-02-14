@@ -1,6 +1,12 @@
 package main
 
-import "../OppgaveFire"
+import (
+	"../OppgaveFire"
+	"os"
+	"os/signal"
+	"syscall"
+	"fmt"
+)
 
 func main() {
 	ascii.IterateOverExtendedASCIIStringLiteral(ascii.Ascii )
