@@ -9,7 +9,7 @@ func main() {
 
 	sign := make(chan os.Signal, 2)
 
-	signal.Notify(sign, syscall.SIGINT, syscall.SIGTSTP) //Sender signal ved å bruke Ctrl+C eller Ctrl+Z
+	signal.Notify(sign, syscall.SIGINT, syscall.SIGTSTP) //Sender signal ved å bruke Ctrl+C (SIGINT) eller Ctrl+Z (SIGTSTP)
 
 	go func() {
 
@@ -31,3 +31,7 @@ func main() {
 
 	}
 }
+
+// Programmet brukte 27% av CPU og 18 MB av minnet. (Windows)
+// Ved å kjøre programmet i GoLand terminalen brukte det rundt 300 MB av minnet.(Windows)
+// Programmet brukte 24% av CPU og minnebruken økte så lenge programmet kjørte. Var på ca 2GB etter ett minutt.(Mac) 
