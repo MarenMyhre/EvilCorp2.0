@@ -33,5 +33,5 @@ func ExtendedASCIIText(sl string) {
 	}
 
 }
-
+//Vi har alle kjørt koden på våre datamaskin(både Mac ios, og PC windows) og alle fikk opp sammen symboler.  
 
