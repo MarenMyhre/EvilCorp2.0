@@ -1,4 +1,4 @@
-package algorithms
+package OppgaveTo
 
 import (
 	"math/rand"
