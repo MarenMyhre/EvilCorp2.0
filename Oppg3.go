@@ -1,34 +1,25 @@
 package main
 
-
 import "fmt"
 import "os"
 import "os/signal"
 import "syscall"
 
-
-func main () {
+func main() {
 
 	sign := make(chan os.Signal, 1)
-	quitCh = make(chan int)
 
-	signal.Notify(sign, syscall.SIGINT, syscall.SIGTERM)
+	signal.Notify(sign, syscall.SIGINT) //Sender signal ved å bruke Ctrl+C
+
+	go func() {
+
+		<-sign
+		fmt.Println("Goodbye world")
+		os.Exit(0)
+	}()
 
 	for i := 0; 1 < 100; i++ {
 		fmt.Println("Hello world")
-	{
-case syscall.SIGINT:
-fmt.Println("Stop")
 
-case syscall.SIGTERM:
-fmt.Println("Terminate")
-quitCh <- 0
-
-default:
-fmt.Println("Unknown")
-quitCh <- 1
-
-
-code := quitCh
-os.Exit(code)
+	}
 }
