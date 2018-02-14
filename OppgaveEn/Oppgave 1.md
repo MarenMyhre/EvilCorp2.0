@@ -9,6 +9,7 @@
 ------------------------------------------
 
 Oppgave A
+
 Beskriv kort metode for å gå fra binære tall til hexadesimale tall og motsatt. Beskriv kort metoden for å gå fra binære tall til 
 desimaltall og motsatt.
 
@@ -23,6 +24,7 @@ plusset alle enerene og ignorerte nullene. Svaret vi fikk var desimaltallet.
 F.eks: 110111101010 blir til 3562.
 
 Oppgave B
+
 Beskriv kort metoden for å gå fra hexadesimale tall til desimaltall og motsatt.
 
 Heksadesimaltall er et system basert på nummeret 16. Så for å gå fra heksadesimaltall til et desimaltall så må hvert heksadesimal 
