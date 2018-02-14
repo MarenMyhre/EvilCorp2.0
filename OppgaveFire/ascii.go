@@ -23,10 +23,14 @@ func IterateOverASCIIStringLiteral(sl string) {
 }
 
 // Oppgave 4b
-const Sekvens  = "\xF1\xf7\xbe dollar"
+const Sekvens  = ""
 
-func ExtendedASCIIText(sample string) {
-	fmt.Printf( Sekvens)
+func ExtendedASCIIText(sl string) {
+	a := []byte("\x22\xa2\x80\xf7\xbe\x64\x6f\x6c\x6c\x61\x72\x22")
+	for i := 0; i < len(a); i++ {
+		fmt.Printf("%c", a[i] )
+
+	}
 
 }
 
