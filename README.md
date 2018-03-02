@@ -5,5 +5,5 @@ Medlemmer:
 Sophie Kleiva, 
  Maren Myhre,
  Maria Prada, 
- Katrine Skomedal, og
+ Katrine Skomedal og
  Julie Hodne Gundersen 
