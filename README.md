@@ -2,8 +2,8 @@
 
 Gruppe i IS-105
 Medlemmer:
-Sophie Kleiva 
-Maren Myhre
-Maria Prada
-Katrine Skomedal 
-Julie Hodne Gundersen 
+Sophie Kleiva, 
+ Maren Myhre,
+ Maria Prada, 
+ Katrine Skomedal, og
+ Julie Hodne Gundersen 
