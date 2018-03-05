@@ -10,7 +10,7 @@ import (
 
 var characterCount map[byte]int
 
-func main() {
+func main( ) {
 	fi, err := ioutil.ReadFile("Oblig2/src/oppgave2/text.txt")
 	fileString := string(fi)
 
