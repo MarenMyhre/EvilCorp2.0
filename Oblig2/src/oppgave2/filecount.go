@@ -12,15 +12,14 @@ import (
 var characterCount map[byte]int
 
 func main( ) {
-	os.Rename("Oblig2/src/oppgave2/text.txt", "Shakespeare.txt")
 
-	fi, err := ioutil.ReadFile("Shakespeare.txt")
+	fi, err := ioutil.ReadFile("Oblig2/src/oppgave2/text.txt")
 	fileString := string(fi)
-	
+
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println("Information about Shakespeare.txt")
+	fmt.Println("Information about Oblig2/src/oppgave2/text.txt")
 
 	fmt.Print("Number of lines in file: ")
 	fmt.Println(strings.Count(fileString, "\n"))
