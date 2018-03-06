@@ -36,7 +36,7 @@ func main( ) {
 		Value int
 	}
 
-	var ss []kv
+	var ss [ ]kv
 	for k, v := range characterCount {
 		ss = append(ss, kv{k, v})
 	}
