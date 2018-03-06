@@ -17,6 +17,7 @@ func main( ) {
 	if err != nil {
 		log.Fatal(err)
 	}
+	fmt.Print("Information about Oblig2/src/oppgave2/text.txt")
 
 	fmt.Print("Number of lines in file: ")
 	fmt.Println(strings.Count(fileString, "\n"))
