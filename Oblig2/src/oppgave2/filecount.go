@@ -16,8 +16,7 @@ func main( ) {
 
 	fi, err := ioutil.ReadFile("Shakespeare.txt")
 	fileString := string(fi)
-
-
+	
 	if err != nil {
 		log.Fatal(err)
 	}
