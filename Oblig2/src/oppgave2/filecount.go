@@ -11,16 +11,17 @@ import (
 var characterCount map[byte]int
 
 func main( ) {
+
 	fi, err := ioutil.ReadFile("Oblig2/src/oppgave2/text.txt")
 	fileString := string(fi)
 
 	if err != nil {
 		log.Fatal(err)
 	}
+	fmt.Println("Information about Oblig2/src/oppgave2/text.txt")
 
 	fmt.Print("Number of lines in file: ")
 	fmt.Println(strings.Count(fileString, "\n"))
-
 	characterCount = make(map[byte]int)
 	for i := 0; i < len(fileString); i++ {
 		if _, ok := characterCount[fileString[i]]; ok {
@@ -35,7 +36,7 @@ func main( ) {
 		Value int
 	}
 
-	var ss []kv
+	var ss [ ]kv
 	for k, v := range characterCount {
 		ss = append(ss, kv{k, v})
 	}
