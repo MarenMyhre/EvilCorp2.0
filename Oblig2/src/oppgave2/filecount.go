@@ -6,22 +6,25 @@ import (
 	"io/ioutil"
 	"log"
 	"sort"
+	"os"
 )
 
 var characterCount map[byte]int
 
 func main( ) {
-	fi, err := ioutil.ReadFile("Oblig2/src/oppgave2/text.txt")
+	os.Rename("Oblig2/src/oppgave2/text.txt", "Shakespeare.txt")
+
+	fi, err := ioutil.ReadFile("Shakespeare.txt")
 	fileString := string(fi)
+
 
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Print("Information about Oblig2/src/oppgave2/text.txt")
+	fmt.Println("Information about Shakespeare.txt")
 
 	fmt.Print("Number of lines in file: ")
 	fmt.Println(strings.Count(fileString, "\n"))
-
 	characterCount = make(map[byte]int)
 	for i := 0; i < len(fileString); i++ {
 		if _, ok := characterCount[fileString[i]]; ok {
