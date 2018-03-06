@@ -6,7 +6,6 @@ import (
 	"io/ioutil"
 	"log"
 	"sort"
-	"os"
 )
 
 var characterCount map[byte]int
