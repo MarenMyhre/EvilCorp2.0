@@ -20,7 +20,11 @@ func main() {
 	mode :=fi.Mode()
 
 	fmt.Println("File information: ", fi.Name())
-	fmt.Println("Size", fi.Size(), "in bytes", fi.Size() / 1000, "KB", fi.Size() / 1000000, "MB", fi.Size() / 1000000000, "GB")
+	fmt.Println("Size", fi.Size(), "in bytes")
+	fmt.Println(fi.Size() / 1000, "KB")
+	fmt.Println(fi.Size() / 1000000, "MB")
+	fmt.Println(fi.Size() / 1000000000, "GB" )
+
 
 	switch{
 	case mode.IsDir():
@@ -34,6 +38,13 @@ func main() {
 		fmt.Println("Is a regular file")
 	default:
 		fmt.Println("Is not a regular file")
+	}
+
+	switch {
+	case mode&os.ModePerm == 0777:
+		fmt.Println("Has Unix pernission bits")
+	default:
+		fmt.Println("Has not Unix pernission bits")
 	}
 
 	switch {
