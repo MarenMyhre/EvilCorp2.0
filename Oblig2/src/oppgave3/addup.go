@@ -1,52 +1,81 @@
 package main
 
 import (
-	"os"
-	"strconv"
 	"fmt"
-	"log"
+	"os"
 	"os/signal"
+	"sync"
+	"syscall"
+	"time"
 )
 
+var waitGroup sync.WaitGroup
+var data chan string
+
 func main() {
-	d := make(chan os.Signal, 2)
-	signal.Notify(d, os.Interrupt,)
+
+	// oppgave 3a
+	c := make(chan int)
+	go readInput(c)
+	time.Sleep(5 * time.Second)
+	go addUp(c)
+	time.Sleep(5 * time.Second)
+
+}
+
+func print(arg int) {
+	fmt.Println("Result from file: ", arg)
+}
+
+func readInput(c chan int) {
+
+	var n1 int
+	var n2 int
+
 	go func() {
-		<-d
-		fmt.Println("End of process")
-		os.Exit(1)
+		checkSigint()
 	}()
 
-	functionA()
+	fmt.Println("Enter num: ")
+	fmt.Scan(&n1)
+	fmt.Println("Enter num: ")
+	fmt.Scan(&n2)
+
+	c <- n1 //sender data via channel
+	c <- n2
+
+	res := <-c // mottar resultat fra channel
+	fmt.Println("Result: ", res)
+
 }
 
-func functionA() {
-	input1 := os.Args[1]
-	input2 := os.Args[2]
+func addUp(c chan int) {
 
-	tallet1, err := strconv.Atoi(input1)
-	//Feilmeldingen "Invalid syntax" vises når den første påstanden ikke er et tall
-	if err != nil {
-		log.Fatal(err)
-	}
+	n1, n2 := <-c, <-c // mottar data fra readInput()
+	res := (n1 + n2)
 
-	tallet2, err := strconv.Atoi(input2)
-	//Feilmeldingen "Invalid syntax" vises når den andre påstanden ikke er et tall
-	if err != nil {
-		log.Fatal(err)
-	}
+	c <- res // sender resultat tilbake til readInput()
 
-	c := make(chan int)
-
-	go functionB(tallet1, tallet2, c)
-
-	resultat := <-c
-
-	fmt.Println(resultat)
 }
 
-func functionB(tallet1 int, tallet2 int, c chan int) {
-	resultat := tallet1 + tallet2
+func checkSigint() {
 
-	c <- resultat
+	c := make(chan os.Signal, 1)
+	signal.Notify(c,
+		syscall.SIGINT,
+		syscall.SIGQUIT,
+		syscall.SIGHUP,
+		syscall.SIGILL)
+
+	s := <-c
+	switch s {
+	case syscall.SIGINT:
+		fmt.Println("Process terminated - SIGINT")
+	case syscall.SIGQUIT:
+		fmt.Println("Terminal quit - SIGQUIT")
+	case syscall.SIGHUP:
+		fmt.Println("Hangup - SIGHUP")
+	case syscall.SIGILL:
+		fmt.Println("Illegal instruction - SIGILL")
+	}
 }
