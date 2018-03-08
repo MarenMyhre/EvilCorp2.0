@@ -9,9 +9,9 @@ func main() {
 
 	c := make(chan int)
 	go readInput(c)
-	time.Sleep(5 * 1e9)
+	time.Sleep(7 * time.Second)
 	go addUp(c)
-	time.Sleep(5 * 1e9)
+	time.Sleep(7 * time.Second)
 }
 
 func readInput(c chan int) {
@@ -24,19 +24,19 @@ func readInput(c chan int) {
 	fmt.Println("Enter number: ")
 	fmt.Scan(&n2)
 
-	c <- n1 //sender data via channel
+	c <- n1 
 	c <- n2
 
-	res := <-c // mottar resultat fra channel
+	res := <-c 
 	fmt.Println("Result: ", res)
 
 }
 
 func addUp(c chan int) {
 
-	n1, n2 := <-c, <-c // mottar data fra readInput()
+	n1, n2 := <-c, <-c 
 	res := (n1 + n2)
 
-	c <- res // sender resultat tilbake til readInput()
+	c <- res 
 
 }
