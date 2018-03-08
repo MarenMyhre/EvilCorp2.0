@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-func main( ) {
+func main() {
 
 	c := make(chan int)
 	go readInput(c)
@@ -24,19 +24,19 @@ func readInput(c chan int) {
 	fmt.Println("Enter number: ")
 	fmt.Scan(&n2)
 
-	c <- n1
+	c <- n1 
 	c <- n2
 
-	res := <-c
+	res := <-c 
 	fmt.Println("Result: ", res)
 
 }
 
 func addUp(c chan int) {
 
-	n1, n2 := <-c, <-c
+	n1, n2 := <-c, <-c 
 	res := (n1 + n2)
 
-	c <- res
+	c <- res 
 
 }
