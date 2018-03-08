@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-func main() {
+func main( ) {
 
 	c := make(chan int)
 	go readInput(c)
