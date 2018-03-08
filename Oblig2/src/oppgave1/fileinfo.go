@@ -1,17 +1,16 @@
 package main
 
-import ("fmt"
-		"os"
-		"log"
-		"strings"
+import (
+	"os"
+	"log"
+	"fmt"
+
 )
-
-
 
 func main() {
 
-	filePath := strings.Join(os.Args[1:], "")
-	fi, err :=os.Lstat(filePath)
+	//filePath := strings.Join(os.Args[1:], "")
+	fi, err :=os.Lstat("text.txt")
 
 	if err !=nil {
 			log.Fatal(err)
@@ -23,7 +22,7 @@ func main() {
 	fmt.Println("Size", fi.Size(), "in bytes")
 	fmt.Println(fi.Size() / 1000, "KB")
 	fmt.Println(fi.Size() / 1000000, "MB")
-	fmt.Println(fi.Size() / 1000000000, "GB" )
+	fmt.Println(fi.Size() / 1000000000, "GB")
 
 
 	switch{
@@ -48,14 +47,14 @@ func main() {
 	}
 
 	switch {
-	case mode&os.ModeAppend !=0:
+	case mode&os.ModeAppend != 0:
 		fmt.Println("Is append only")
 	default:
 		fmt.Println("Is not a device file")
 	}
 
 	switch {
-	case mode&os.ModeSymlink !=0:
+	case mode&os.ModeSymlink != 0:
 		fmt.Println("In a symbolic link")
 	default:
 		fmt.Println("Is not a symbolic link")
