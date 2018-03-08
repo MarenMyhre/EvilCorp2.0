@@ -10,7 +10,7 @@ import (
 )
 
 
-func addtofile() {
+func addtofile( ) {
 
 	var n1 int
 	var n2 int
