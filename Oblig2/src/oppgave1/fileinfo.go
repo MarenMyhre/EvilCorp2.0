@@ -5,12 +5,13 @@ import (
 	"log"
 	"fmt"
 
+	"strings"
 )
 
 func main() {
 
-	//filePath := strings.Join(os.Args[1:], "")
-	fi, err :=os.Lstat("text.txt")
+	filePath := strings.Join(os.Args[1:], "")
+	fi, err :=os.Lstat(filePath)
 
 	if err !=nil {
 			log.Fatal(err)
