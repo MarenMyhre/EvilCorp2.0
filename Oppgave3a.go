@@ -25,7 +25,7 @@ func multiply (in chan [2]int) {
 	}
 }
 
-func awesomeProject() {
+func main() {
 	in := make (chan [2]int, 10)
 	go multiply (in)
 	generate (in)
