@@ -12,13 +12,13 @@ var characterCount map[byte]int
 
 func main( ) {
 
-	fi, err := ioutil.ReadFile("Oblig2/src/oppgave2/text.txt")
+	fi, err := ioutil.ReadFile("text.txt")
 	fileString := string(fi)
 
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println("Information about Oblig2/src/oppgave2/text.txt")
+	fmt.Println("Information about text.txt")
 
 	fmt.Print("Number of lines in file: ")
 	fmt.Println(strings.Count(fileString, "\n"))
