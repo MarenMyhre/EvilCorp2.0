@@ -1,4 +1,4 @@
-package OppgaveTre
+package main
 
 import "fmt"
 import "os"

@@ -3,9 +3,30 @@ package main
 import (
 	"fmt"
 	"time"
+	"os"
+	"os/signal"
+	"syscall"
 )
+func sig() {
+
+	sign := make(chan os.Signal, 2)
+
+	signal.Notify(sign, syscall.SIGINT) //Sender signal ved å bruke Ctrl+C (SIGINT)
+
+	go func() {
+
+		signals := <-sign
+		switch signals {
+		case syscall.SIGINT:
+			fmt.Println("Du har valgt å avslutte denne prosessen.")
+			os.Exit(0)
+
+		}
+	}()
+}
 
 func main() {
+	sig()
 
 	c := make(chan int)
 	go readInput(c)
