@@ -11,7 +11,7 @@ func sig() {
 
 	sign := make(chan os.Signal, 2)
 
-	signal.Notify(sign, syscall.SIGINT) //Sender signal ved å bruke Ctrl+C (SIGINT)
+	signal.Notify(sign, syscall.SIGINT) //Sender signal ved å bruke Ctrl+C)
 
 	go func() {
 
