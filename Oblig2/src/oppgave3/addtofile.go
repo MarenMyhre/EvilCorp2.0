@@ -84,6 +84,6 @@ fmt.Println("Resultat: ", result)
 func main() {
 	sig()
 	addtofile()
-	sumfromfile()
+	//sumfromfile()
 	readResult("file.txt")
 }
