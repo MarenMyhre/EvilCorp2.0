@@ -1,7 +1,12 @@
 package main
 
+//import "testing"
+
+/**
 import (
-	"./"
+
+	"./ascii"
+	"testing"
 )
 
 func main() {
@@ -10,3 +15,4 @@ func main() {
 	ascii.ExtendedASCIITextTest(*testing.T)
 
 }
+*/
