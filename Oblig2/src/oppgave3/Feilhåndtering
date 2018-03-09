@@ -24,3 +24,5 @@ Slik kan man implementere feilhåndteringen videre i kildekoden:
 func readResult(path string) {
 	data, err := ioutil.ReadFile(path)
 	checkErr(err)
+
+
