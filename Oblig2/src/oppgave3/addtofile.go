@@ -10,6 +10,7 @@ import (
 	"os/signal"
 	"syscall"
 )
+
 func sig() {
 
 	sign := make(chan os.Signal, 1)
