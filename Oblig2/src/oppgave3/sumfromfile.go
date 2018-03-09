@@ -22,8 +22,9 @@ func readLines(path string) ([]string, error) {
 	}
 	return lines, scanner.Err()
 }
+
 func sumfromfile()  {
-	lines, err := readLines("result.txt")
+	lines, err := readLines("file.txt")
 	if err != nil {
 		log.Fatalf("readLines: %s", err)
 	}
@@ -38,7 +39,7 @@ func sumfromfile()  {
 	result := tall1 + tall2
 
 
-	f, err := os.OpenFile("result.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	f, err := os.Open("file.txt")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -50,3 +51,4 @@ func sumfromfile()  {
 		log.Fatal(err)
 	}
 }
+

@@ -11,7 +11,7 @@ func main() {
 	go readInput(c)
 	time.Sleep(7 * time.Second)
 	go addUp(c)
-	time.Sleep(7 * time.Second)
+	time.Sleep(4 * time.Second)
 }
 
 func readInput(c chan int) {

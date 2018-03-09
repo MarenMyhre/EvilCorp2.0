@@ -1,5 +1,5 @@
-
 package main
+
 import (
 	"os"
 	"log"
@@ -7,10 +7,10 @@ import (
 	"io/ioutil"
 	"strings"
 	"strconv"
+
 )
 
-
-func addtofile( ) {
+func addtofile() {
 
 	var n1 int
 	var n2 int
@@ -20,13 +20,13 @@ func addtofile( ) {
 	fmt.Println("Enter number: ")
 	fmt.Scan(&n2)
 
-	file, err := os.Create("result.txt")
+	file, err := os.Create("file.txt")
 	if err != nil {
 		log.Fatal("Cannot create file", err)
 	}
 	defer file.Close()
 
-	f, err := os.OpenFile("result.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	f, err := os.Open("file.txt")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -42,28 +42,28 @@ func addtofile( ) {
 
 func checkErr(e error) {
 	if e != nil {
-		panic(e)
+	panic(e)
 	}
 }
 
 func readResult(path string) {
-	data, err := ioutil.ReadFile(path)
-	checkErr(err)
 
-	tempData := string(data)
-	stringData := strings.Split(tempData, "\n")
-	temp := stringData[len(stringData)-2]
+data, err := ioutil.ReadFile(path)
+checkErr(err)
 
-	resultat, err := strconv.Atoi(temp)
-	checkErr(err)
+tempData := string(data)
+stringData := strings.Split(tempData, " ")
+temp := stringData[len(stringData)-2]
 
-	fmt.Println("Result from file: ", resultat)
+result, err := strconv.Atoi(temp)
+checkErr(err)
+
+fmt.Println("Resultat: ", result)
 }
-
 
 
 func main() {
 	addtofile()
 	sumfromfile()
-	readResult("result.txt")
+	readResult("file.txt")
 }
