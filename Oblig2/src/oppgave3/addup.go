@@ -7,9 +7,9 @@ import (
 	"os/signal"
 	"syscall"
 )
-func sig() {
+func signaler() {
 
-	sign := make(chan os.Signal, 2)
+	sign := make(chan os.Signal, 1)
 
 	signal.Notify(sign, syscall.SIGINT) //Sender signal ved å bruke Ctrl+C)
 
@@ -26,7 +26,7 @@ func sig() {
 }
 
 func main() {
-	sig()
+	signaler()
 
 	c := make(chan int)
 	go readInput(c)

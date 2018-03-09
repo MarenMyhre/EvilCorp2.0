@@ -7,11 +7,29 @@ import (
 	"io/ioutil"
 	"strings"
 	"strconv"
-
+	"os/signal"
+	"syscall"
 )
+func sig() {
+
+	sign := make(chan os.Signal, 1)
+
+	signal.Notify(sign, syscall.SIGINT) //Sender signal ved å bruke Ctrl+C)
+
+	go func() {
+
+		signals := <-sign
+		switch signals {
+		case syscall.SIGINT:
+			fmt.Println("Avslutter...")
+			os.Exit(0)
+
+		}
+	}()
+}
+
 
 func addtofile() {
-
 	var n1 int
 	var n2 int
 
@@ -63,6 +81,7 @@ fmt.Println("Resultat: ", result)
 
 
 func main() {
+	sig()
 	addtofile()
 	sumfromfile()
 	readResult("file.txt")

@@ -6,8 +6,8 @@ import (
 	"os"
 	"bufio"
 	"strconv"
-)
 
+)
 func readLines(path string) ([]string, error) {
 	file, err := os.Open(path)
 	if err != nil {
