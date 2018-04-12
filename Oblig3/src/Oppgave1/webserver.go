@@ -11,7 +11,7 @@ func main() {
 	fmt.Println("Launching server...")
 	fmt.Println("Waiting for client to connect...")
 
-	ln, _ := net.Listen("tcp", "localhost:8081")
+	ln, _ := net.Listen("tcp", "localhost:8080")
 	conn, _ := ln.Accept()
 	fmt.Println("Connected!")
 
