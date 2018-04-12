@@ -1,24 +1,18 @@
 package main
 
 import (
-	"fmt"
-	"net"
-	"bufio"
+	"net/http"
+	"strings"
 )
-
+func sayHello(w http.ResponseWriter, r *http.Request) {
+	message := r.URL.Path
+	message = strings.TrimPrefix(message, "/")
+	message = "Hello, client"
+	w.Write([]byte(message))
+}
 func main() {
-
-	fmt.Println("Launching server...")
-	fmt.Println("Waiting for client to connect...")
-
-	ln, _ := net.Listen("tcp", "localhost:8080")
-	conn, _ := ln.Accept()
-	fmt.Println("Connected!")
-
-	for {
-		message, _ := bufio.NewReader(conn).ReadString('\n')
-		fmt.Print("Message recieved from client: ", string(message))
-		newmessage := message
-		conn.Write([]byte(newmessage + "\n"))
+	http.HandleFunc("/", sayHello)
+	if err := http.ListenAndServe(":8080", nil); err != nil {
+		panic(err)
 	}
 }
