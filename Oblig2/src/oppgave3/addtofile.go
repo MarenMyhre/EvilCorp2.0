@@ -86,4 +86,4 @@ func main() {
 	addtofile()
 	//sumfromfile()
 	readResult("file.txt")
-}
+} 
