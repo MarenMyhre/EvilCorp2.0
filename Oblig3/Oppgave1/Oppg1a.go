@@ -1,2 +1,0 @@
-package Oppgave1
-
