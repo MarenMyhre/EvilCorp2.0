@@ -11,7 +11,7 @@ import (
 type JsonStruct struct {
 	Sted string
 }
-
+//random kommentar
 func main()  {
 	http.HandleFunc("/", foo)
 	http.HandleFunc("/mate", getMate)
