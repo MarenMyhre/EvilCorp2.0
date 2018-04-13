@@ -12,17 +12,17 @@ func CheckError(err error) {
 }
 
 func main() {
-	ServerAddr,err := net.ResolveUDPAddr("udp","CHANGEME:27015")
+	ServerAddr,err := net.ResolveUDPAddr("udp","8080")
 	CheckError(err)
 
-	LocalAddr, err := net.ResolveUDPAddr("udp", "192.168.1.129:0")
+	LocalAddr, err := net.ResolveUDPAddr("udp", "8080")
 	CheckError(err)
 
 	Conn, err := net.DialUDP("udp", LocalAddr, ServerAddr)
 	CheckError(err)
 
 	defer Conn.Close()
-	Conn.Write([]byte("Mote Fr 5.5 14:45 Flaaklypa"))
+	Conn.Write([]byte(""))
 	if err != nil {
 		fmt.Println(err)
 	}
