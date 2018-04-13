@@ -1,4 +1,4 @@
-package main
+package udp
 
 import (
 	"bufio"
@@ -9,7 +9,7 @@ import (
 
 func main() {
 	// connect to this socket
-	conn, _ := net.Dial("tcp", "localhost:8080")
+	conn, _ := net.Dial("udp", "localhost:8080")
 	for {
 		// read in input from stdin
 		reader := bufio.NewReader(os.Stdin)

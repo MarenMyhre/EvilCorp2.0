@@ -1,4 +1,4 @@
-package main
+package udp
 
 import (
 	"bufio"
@@ -12,7 +12,7 @@ func main() {
 	fmt.Println("Waiting for client to connect...")
 
 	// listen on all interfaces
-	ln, _ := net.Listen("tcp", "localhost:8080")
+	ln, _ := net.Listen("udp", "localhost:8080")
 	// accecpt connection on port
 	conn, _ := ln.Accept()
 	fmt.Println("Connected!")
