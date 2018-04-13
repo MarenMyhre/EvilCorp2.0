@@ -1,27 +1,28 @@
 package main
 
-import (
-	"bufio"
-	"fmt"
-	"net"
-)
+import "net"
+import "fmt"
+import "bufio"
+import "strings" // only needed below for sample processing
 
 func main() {
 
 	fmt.Println("Launching server...")
-	fmt.Println("Waiting for client to connect...")
 
 	// listen on all interfaces
-	ln, _ := net.Listen("tcp", "localhost:8080")
-	// accecpt connection on port
-	conn, _ := ln.Accept()
-	fmt.Println("Connected!")
+	ln, _ := net.Listen("tcp", ":8080")
 
+	// accept connection on port
+	conn, _ := ln.Accept()
+
+	// run loop forever (or until ctrl-c)
 	for {
-		// read and output message from client
+		// will listen for message to process ending in newline (\n)
 		message, _ := bufio.NewReader(conn).ReadString('\n')
-		fmt.Print("Message recieved from client: ", string(message))
-		newmessage := message
+		// output message received
+		fmt.Print("Message Received:", string(message))
+		// sample process for string received
+		newmessage := strings.ToUpper(message)
 		// send new string back to client
 		conn.Write([]byte(newmessage + "\n"))
 	}
