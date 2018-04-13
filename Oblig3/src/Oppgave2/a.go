@@ -1,4 +1,4 @@
-package Oppgave2
+package main
 
 import (
 	"net/http"
