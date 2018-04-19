@@ -1,24 +1,29 @@
-package udp
+package main
 
 import (
-	"bufio"
 	"fmt"
 	"net"
-	"os"
 )
 
+func CheckError(err error) {
+	if err  != nil {
+		fmt.Println("Error: " , err)
+	}
+}
+
 func main() {
-	// connect to this socket
-	conn, _ := net.Dial("udp", "localhost:8080")
-	for {
-		// read in input from stdin
-		reader := bufio.NewReader(os.Stdin)
-		fmt.Println("Text to send: ")
-		text, _ := reader.ReadString('\n')
-		// send to socket
-		fmt.Fprintf(conn, text, "\n")
-		// listen for reply
-		message, _ := bufio.NewReader(conn).ReadString('\n')
-		fmt.Print("Message from server: ", message)
+	ServerAddr,err := net.ResolveUDPAddr("udp","8080")
+	CheckError(err)
+
+	LocalAddr, err := net.ResolveUDPAddr("udp", "8080")
+	CheckError(err)
+
+	Conn, err := net.DialUDP("udp", LocalAddr, ServerAddr)
+	CheckError(err)
+
+	defer Conn.Close()
+	Conn.Write([]byte(""))
+	if err != nil {
+		fmt.Println(err)
 	}
 }

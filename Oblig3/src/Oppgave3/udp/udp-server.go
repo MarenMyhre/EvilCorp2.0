@@ -1,28 +1,38 @@
-package udp
+package main
 
 import (
-	"bufio"
 	"fmt"
 	"net"
-)
+	"os"
+
+	)
+
+/* A Simple function to verify error */
+func checkError(err error) {
+	if err  != nil {
+		fmt.Println("Error: " , err)
+		os.Exit(0)
+	}
+}
 
 func main() {
+	/* Lets prepare a address at any address at port 8080*/
+	ServerAddr,err := net.ResolveUDPAddr("udp","8080")
+	checkError(err)
 
-	fmt.Println("Launching server...")
-	fmt.Println("Waiting for client to connect...")
+	/* Now listen at selected port */
+	ServerConn, err := net.ListenUDP("udp", ServerAddr)
+	checkError(err)
+	defer ServerConn.Close()
 
-	// listen on all interfaces
-	ln, _ := net.Listen("udp", "localhost:8080")
-	// accecpt connection on port
-	conn, _ := ln.Accept()
-	fmt.Println("Connected!")
+	buf := make([]byte, 1024)
 
 	for {
-		// read and output message from client
-		message, _ := bufio.NewReader(conn).ReadString('\n')
-		fmt.Print("Message recieved from client: ", string(message))
-		newmessage := message
-		// send new string back to client
-		conn.Write([]byte(newmessage + "\n"))
+		n,addr,err := ServerConn.ReadFromUDP(buf)
+		fmt.Println("Received ",string(buf[0:n]), " from ",addr)
+
+		if err != nil {
+			fmt.Println("Error: ",err)
+		}
 	}
 }
