@@ -21,8 +21,8 @@ func main() {
 
 		p := make([]byte, 2048)
 		addr := net.UDPAddr{
-			Port: 8080,
-			IP:   net.ParseIP("127.0.0.1"),
+			Port: 17,
+			IP:   net.ParseIP("0.0.1"),
 		}
 		ser, err := net.ListenUDP("udp", &addr)
 		if err != nil {
@@ -43,7 +43,7 @@ func main() {
 	fmt.Println("Launching server...")
 
 	// listen on all interfaces
-	ln, _ := net.Listen("tcp", ":8080")
+	ln, _ := net.Listen("tcp", ":17")
 
 	// accept connection on port
 	conn, _ := ln.Accept()
