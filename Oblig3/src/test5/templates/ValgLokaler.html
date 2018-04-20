@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <h2>Valglokaler</h2>
+    <p> Data hentet fra <b>https://hotell.difi.no/api/json/valg/valglokaler/2017</b></p>
+    <br>
+        <thead>
+             <tr>
+                <th>Area</th>
+                <th>BoroughName</th>
+                <th>AddressLine</th>
+                <th>PollingPlaceID</th>
+                <th>BoroughID</th>
+                <th>CountyName</th>
+                <th>PollingPlaceName</th>
+                <th>GpsCoordinates</th>
+                <th>MunicipalityID</th>
+                <th>ElectionDayVoting</th>
+                <th>InfoText</th>
+                <th>OpeningHours</th>
+                <th>PostalCode</th>
+            </tr>
+        </thead>
+        <tbody>
+        {{range $.Entries}}
+                <tr>
+                    <tr>
+                    <p>Area: {{.Area }}</p>
+                    <p>BoroughName: {{.BoroughName }}</p>
+                    <p>AddressLine>: {{.AddressLine }}</p>
+                    <p>PollingPlaceID: {{ .PollingPlaceID }}</p>
+                    <p>BoroughID: {{ .BoroughID}}</p>
+                    <p>CountyName: {{ .CountyName }}</p>
+                    <p>PollingPlaceName: {{ .PollingPlaceName }}</p>
+                    <p>GpsCoordinates: {{ .GpsCoordinates }}</p>
+                    <p>MunicipalityID: {{ .MunicipalityID }}</p>
+                    <p>ElectionDayVoting: {{ .ElectionDayVoting }}</p>
+                    <p>InfoText: {{ .InfoText }}</p>
+                    <p>OpeningHours: {{ .OpeningHours }}</p>
+                    <p>PostalCode: {{ .PostalCode }}</p>
+                </tr>
+        </tbody>
+        <p>BoroughName: {{.BoroughName }}</p>
+        <p>AddressLine>: {{.AddressLine }}</p>
+        <p>PollingPlaceID: {{ .PollingPlaceID }}</p>
+        <p>BoroughID: {{ .BoroughID}}</p>
+        <p>CountyName: {{ .CountyName }}</p>
+        <p>PollingPlaceName: {{ .PollingPlaceName }}</p>
+        <p>GpsCoordinates: {{ .GpsCoordinates }}</p>
+        <p>MunicipalityID: {{ .MunicipalityID }}</p>
+        <p>ElectionDayVoting: {{ .ElectionDayVoting }}</p>
+        <p>InfoText: {{ .InfoText }}</p>
+        <p>OpeningHours: {{ .OpeningHours }}</p>
+        <p>PostalCode:</thead>
+    <tbody>
+        {{range $.Entries}}
+                <tr>
+                    <p>Area: {{.Area }}</p>
+                    <p>BoroughName: {{.BoroughName }}</p>
+                    <p>AddressLine>: {{.AddressLine }}</p>
+                    <p>PollingPlaceID: {{ .PollingPlaceID }}</p>
+                    <p>BoroughID: {{ .BoroughID}}</p>
+                    <p>CountyName: {{ .CountyName }}</p>
+                    <p>PollingPlaceName: {{ .PollingPlaceName }}</p>
+                    <p>GpsCoordinates: {{ .GpsCoordinates }}</p>
+                    <p>MunicipalityID: {{ .MunicipalityID }}</p>
+                    <p>ElectionDayVoting: {{ .ElectionDayVoting }}</p>
+                    <p>InfoText: {{ .InfoText }}</p>
+                    <p>OpeningHours: {{ .OpeningHours }}</p>
+                    <p>PostalCode: {{ .PostalCode }}</p>
+
+                </tr>
+         </tbody>
+        </div>
+    </body>
+</html>
