@@ -30,13 +30,13 @@ func main() {
 			return
 		}
 		for {
-			_, remoteaddr, err := ser.ReadFromUDP(p)
-			fmt.Printf("Read a message from %v %s \n", remoteaddr, p)
+			_, RemoteAddr, err := ser.ReadFromUDP(p)
+			fmt.Printf("Read a message from %v %s \n", RemoteAddr, p)
 			if err != nil {
 				fmt.Printf("Some error  %v", err)
 				continue
 			}
-			go sendResponse(ser, remoteaddr)
+			go sendResponse(ser, RemoteAddr)
 		}
 	}()
 
@@ -57,6 +57,6 @@ func main() {
 		// sample process for string received
 		newmessage := strings.ToUpper(message)
 		// send new string back to client
-		conn.Write([]byte(newmessage + "\n"))
+		conn.Write([]byte(newmessage +  "\n"))
 	}
 }
