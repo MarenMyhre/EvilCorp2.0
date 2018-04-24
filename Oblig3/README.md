@@ -9,4 +9,4 @@ Medlemmer som har bidratt i oppgaven:
 
 Kommentar:
 
-> I oppgave 2 syns vi det var best å gjøre a og b samtidig, så de ligger i samme oppgave. Vi har også valgt å bruke litt mer kreative APIer enn den som var lagt til som eksempel. Håper dette er OK.
+*- I oppgave 2 syns vi det var best å gjøre a og b samtidig, så de ligger i samme oppgave. Vi har også valgt å bruke litt mer kreative APIer enn den som var lagt til som eksempel. Håper dette er OK.*
