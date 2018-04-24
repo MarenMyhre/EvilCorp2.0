@@ -7,10 +7,12 @@ import (
 	"io/ioutil"
 	"encoding/json"
 	"path"
+	"io"
 )
 
 
 func main() {
+	http.HandleFunc("/", client)
 	http.HandleFunc("/1", Web1)
 	http.HandleFunc("/2", Web2)
 	http.HandleFunc("/3", Web3)
@@ -52,6 +54,12 @@ type Comic2 struct {
 
 }
 
+func client(w http.ResponseWriter, r *http.Request) {
+	io.WriteString(w, "Hello, client")
+	if err := http.ListenAndServe(":8080", nil); err != nil {
+		panic(err)
+	}
+}
 
 func Web1(w http.ResponseWriter, r *http.Request) {
 	var sti1 yesNo
