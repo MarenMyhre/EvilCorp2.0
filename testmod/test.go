@@ -5,7 +5,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	u "net/url"
-	o "github.com/humbhenri/openweather"
+	o "github.com/MarenMyhre/EvilCorp2.0/blob/master/testmod/test"
 	"os"
 	"strings"
 	"fmt"
