@@ -2,31 +2,29 @@ package main
 
 import (
 	"net/http"
+	"html/template"
 	"io/ioutil"
 	"encoding/json"
 	"log"
 	"path"
-	"html/template"
 )
 
 func main() {
 	http.HandleFunc("/1", Web1)
 	http.ListenAndServe(":8080", nil)
 }
-type Håp struct {
-	Status   int `json:"status"`
-	Holidays []struct {
-		Name     string `json:"name"`
-		Date     string `json:"date"`
-		Observed string `json:"observed"`
-		Public   bool   `json:"public"`
-	} `json:"holidays"`
+type FluAPI []struct {
+	UserName    string `json:"user_name"`
+	TweetText   string `json:"tweet_text"`
+	Latitude    string `json:"latitude"`
+	Longitude   string `json:"longitude"`
+	TweetDate   string `json:"tweet_date"`
+	Aggravation string `json:"aggravation"`
 }
 
 func Web1(w http.ResponseWriter, r *http.Request) {
-	var sti1 Håp
-	url := "https://holidayapi.com/v1/holidays?key=ee17c954-a67a-43bf-afb4-9c54ac05ab2b&country=NO&year=2017&month=05"
-
+	var sti1 FluAPI
+	url := "http://api.flutrack.org/?s=feverANDcoughORfever"
 	result, _ := http.Get(url)
 
 	body, _ := ioutil.ReadAll(result.Body)
@@ -36,7 +34,7 @@ func Web1(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(jsonErr)
 	}
 
-	fp := path.Join("Templates", "San.html")
+	fp := path.Join("templates", "FluTracker.html")
 	tmpl, err := template.ParseFiles(fp)
 	if err != nil {
 		log.Fatal(err)

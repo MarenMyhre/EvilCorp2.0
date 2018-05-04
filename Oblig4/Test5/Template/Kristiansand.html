@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>PlaneTracker</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link href="assets/main.css" rel="stylesheet" type="text/css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+<body>
+<div class="jumbotron text-center">
+    <h1>PlaneTracker LIVE</h1>
+    <p>Get instant information about nearby planes!</p>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8" align="center">
+            <div class="container">
+                <button class="btn btn-dark" id="updateBtn">Update</button>
+                <button class="btn btn-dark" id="searchBtn">Search</button>
+                <button class="btn btn-dark" id="locationBtn">Location</button>
+                <br><br>
+                <table class="table table-hover" id="planeTable">
+                    <thead>
+                    <tr>
+                        <th>Registration number</th>
+                        <th>Call Sign</th>
+                        <th>Speed</th>
+                        <th>Departure</th>
+                        <th>Arrival</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <th>{{.Cod}}</th>
+                        <th>{{.Message}}</th>
+                        <th>{{.Cnt}}</th>
+                            {{range $.List}}
+                                    <th>{{.dt}}</th>
+                            {{end}}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+<div id="searchModal" class="modal">
+    <div class="modal-content" style="overflow-x: hidden" style="overflow-y: scroll">
+        <span class="close" id="closeSearch">&times;</span>
+        <div class="container-fluid" id="searchFields">
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6" id="col_info" style="align-content: center">
+                    <p>Please enter the callsign of the plane you want to find!</p>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="callSign" placeholder="Callsign...">
+                    </div>
+                    <button class="btn btn-dark" id="searchFinishhed">Search</button>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="infoModal" class="modal">
+    <div class="modal-content" id="infoContent" style="overflow-x: hidden" style="overflow-y: scroll">
+        <span class="close" id="closeInfo">&times;</span>
+        <div class="container-fluid" >
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10" id="col_info" style="align-content: center">
+                    <h3>Information about selected plane</h3><br>
+                    <table class="table table-striped" id="infoTable">
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="map"> </div>
+
+
+<script src="js/map.js"></script>
+<script src="js/data.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbqtH5BuagfSbbrkDp4WMcvg-CyWlXf-A&callback=initMap" async defer></script>
+
+</body>
+</html>

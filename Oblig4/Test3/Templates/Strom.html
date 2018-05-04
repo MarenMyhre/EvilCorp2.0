@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <div class="col-10">
+        <table class="table">
+            <tr>
+                <th>County</th>
+                <th>Notifications</th>
+                <th>User_fees</th>
+                <th>Web_site</th>
+            </tr>
+        {{ range . }}
+            <tr>
+                <td>{{.County}}</td>
+                <td>{{.Notifications}}</td>
+                <td>{{.User_fees}}</td>
+                <td><a href={{.Web_site}}> {{.Web_site}}</a></td>
+            </tr>
+        {{end}}
+        </table>
+    </div>
+</div>
+</body>
+</html>

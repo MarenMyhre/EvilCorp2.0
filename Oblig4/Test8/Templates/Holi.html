@@ -7,15 +7,14 @@
 <body>
 <h1>Fri dager i mai</h1>
 
-    {{range $.Holidays}}
+<div><a>{{.Status}}</a></div>
+
+<div><a>{{.Holidays}}</a></div>
+    {{range .}}
     <div><a>Name: </a><a>{{ .Name }}</a></div>
     <div><a>Date: </a><a>{{ .Date }}</a></div>
-    <div><a>Observed:</a><a>{{ .Observed }}</a></div>
+    <div><a>Observed: </a><a>{{ .Observed }}</a></div>
     <div><a>Public: </a><a>{{ .Public}}</a></div>
-
     {{end}}
 </body>
 </html>
-
-
-

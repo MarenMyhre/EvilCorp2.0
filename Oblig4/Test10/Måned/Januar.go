@@ -1,4 +1,4 @@
-package main
+package Måned
 
 import (
 	"net/http"
@@ -9,10 +9,6 @@ import (
 	"html/template"
 )
 
-func main() {
-	http.HandleFunc("/1", Web1)
-	http.ListenAndServe(":8080", nil)
-}
 type Håp struct {
 	Status   int `json:"status"`
 	Holidays []struct {
@@ -23,9 +19,9 @@ type Håp struct {
 	} `json:"holidays"`
 }
 
-func Web1(w http.ResponseWriter, r *http.Request) {
+func Januar(w http.ResponseWriter, r *http.Request) {
 	var sti1 Håp
-	url := "https://holidayapi.com/v1/holidays?key=ee17c954-a67a-43bf-afb4-9c54ac05ab2b&country=NO&year=2017&month=05"
+	url := "https://holidayapi.com/v1/holidays?key=ee17c954-a67a-43bf-afb4-9c54ac05ab2b&country=NO&year=2017&month=01"
 
 	result, _ := http.Get(url)
 
@@ -36,7 +32,7 @@ func Web1(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(jsonErr)
 	}
 
-	fp := path.Join("Templates", "San.html")
+	fp := path.Join("Template", "01.html")
 	tmpl, err := template.ParseFiles(fp)
 	if err != nil {
 		log.Fatal(err)
@@ -45,4 +41,5 @@ func Web1(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatal(err)
 	}
+
 }

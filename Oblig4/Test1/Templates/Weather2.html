@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Oppgave 2</title>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6" align="center">
+            <div class="container">
+                <h2>Fylker i Norge</h2>
+                <p>Jsonkoden: <b>https://hotell.difi.no/api/json/difi/geo/fylke</b></p>
+                <br>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Navn</th>
+                        <th>Nummer</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{range $.}}
+                    <tr>
+                        <th>{{.Count}}</th>
+                        <th>{{.Lang}}</th>
+                    </tr>
+                    {{end}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+</body>
+</head>
+<footer>
+    <p>Bitmen</p>
+</footer>
+</html>
