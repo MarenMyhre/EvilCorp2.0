@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Food</title>
+</head>
+<body>
+<h1>Food</h1>
+
+    <div><a>{{ .Title}}</a></div>
+    <div><a>{{ .Version}}</a></div>
+    <div><a>{{ .Href}}</a></div>
+
+        {{range .Results}}
+        <div><a>-</a></div>
+
+        <div><a>{{ .Title}}</a></div>
+    <div><a>{{ .Href}}</a></div>
+    <div><a>{{ .Ingredients}}</a></div>
+    <div><a><img src="{{ .Thumbnail }}"></a></div>
+
+
+        {{end}}
+
+</body>
+</html>
