@@ -4,19 +4,17 @@ import (
 	"net/http"
 	"log"
 	"html/template"
-	"fmt"
 	"io/ioutil"
 	"encoding/json"
+	"path"
 )
 
 
 func main() {
 	http.HandleFunc("/1", Open)
 	http.HandleFunc("/2", Web)
-	fs := http.FileServer(http.Dir("static"))
-	http.Handle("/static/", http.StripPrefix("/static/", fs))
 	if err := http.ListenAndServe(":8080", nil); err != nil {
-		fmt.Print(err)
+		log.Fatal(err)
 	}
 }
 
@@ -111,11 +109,12 @@ type Poke struct {
 
 var info Poke
 var Url = ""
-var i =""
+
 
 func Open(w http.ResponseWriter, r *http.Request){
+	fp := path.Join("Template", "Start.html")
 	if r.Method == "GET" {
-		t, _ := template.ParseFiles("Start.html")
+		t, _ := template.ParseFiles(fp)
 		t.Execute(w, nil)
 	}else {
 		r.ParseForm()
@@ -123,8 +122,7 @@ func Open(w http.ResponseWriter, r *http.Request){
 }
 
 func Web(w http.ResponseWriter, r *http.Request) {
-	nameID := r.FormValue("stedet")
-	i = string(nameID)
+	nameID := r.FormValue("ID")
 	Url= "https://pokeapi.co/api/v2/pokemon/" + string(nameID)
 	nameID = ""
 	URL := string(Url)
@@ -137,17 +135,17 @@ func Web(w http.ResponseWriter, r *http.Request) {
 
 	body, _ := ioutil.ReadAll(res.Body)
 
-	jsonErr := json.Unmarshal(body, &i)
+	jsonErr := json.Unmarshal(body, &info)
 	if jsonErr != nil {
 		log.Fatal(jsonErr)
 	}
-
-	temp, err := template.ParseFiles("Dex.html")
+	fp2 := path.Join("Template", "Dex.html")
+	temp, err := template.ParseFiles(fp2)
 	if err != nil {
 		log.Print(err)
 	}
 
-	err = temp.Execute(w, i)
+	err = temp.Execute(w, info)
 	if err != nil {
 		log.Fatal(err)
 	}
