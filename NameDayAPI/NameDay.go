@@ -45,7 +45,7 @@ func Web1(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(jsonErr)
 	}
 
-	fp := path.Join("Template", "Name.html")
+	fp := path.Join("Templates", "name.html")
 	tmpl, err := template.ParseFiles(fp)
 	if err != nil {
 		log.Fatal(err)

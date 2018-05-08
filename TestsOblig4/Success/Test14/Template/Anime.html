@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Food</title>
+</head>
+<body>
+<h1>List of films</h1>
+    {{range $.Film}}
+        <div><a>ID</a><a>{{ .ID}}</a></div>
+        <div><a>Title: </a><a>{{ .Title }}</a></div>
+        <div><a>Summary: </a><a>{{ .Description }}</a></div>
+        <div><a>Director: </a><a>{{ .Director}}</a></div>
+        <div><a>Producer: </a><a>{{ .Producer }}</a></div>
+        <div><a>Rate: </a><a>{{ .RtScore }}</a></div>
+
+        <div><a>People: </a><a>{{ .People }}</a></div>
+        <div><a>Species: </a><a>{{ .Species }}</a></div>
+        <div><a>Location: </a><a>{{ .Location }}</a></div>
+        <div><a>Vehicles: </a><a>{{ .Vehicles}}</a></div>
+        <div><a>URL: </a><a>{{ .URL }}</a></div>
+    {{end}}
+</body>
+</html>
+
