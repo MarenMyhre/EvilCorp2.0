@@ -9,7 +9,25 @@
         <table>
             <tr><th>ID:</th><td>{{.ID}}</td></tr>
             <tr><th>Navn:</th><td>{{.Name}}</td></tr>
-
+            <tr><td></td></tr>
+            <tr><th>Types:</th></tr>
+        {{range .Types}}
+            <tr><th>    -</th><td>{{.Type.Name}}</td></tr>
+        {{end}}
+            <tr><th>Abilities:</th></tr>
+        {{range .Abilities}}
+            <tr><th>    -</th><td>{{.Ability.Name}}</td></tr>
+        {{end}}
+            <tr><th>Veier:</th><td>{{.Weight}}hg</td></tr>
+            <tr><th>Høyde:</th><td>{{.Height}}dm</td></tr>
+            <tr><th>Order:</th><td>{{.Order}}</td></tr>
+            <tr><td></td></tr>
+            <tr><th>Moves:</th></tr>
+        {{range .Moves}}
+            <tr><th>    -</th><td>{{.Move.Name}}</td></tr>
+        {{end}}
         </table>
 </body>
 </html>
+
+
