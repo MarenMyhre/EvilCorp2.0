@@ -179,7 +179,7 @@ func (f*Poke) getResp() {
 	} else if id > 649 && id < 722 {
 		resp = "This Pokémon belongs to generation 6. This generation saw the debut of 72 new Pokémon species!"
 	} else if id > 722 && id < 803 {
-		resp = "This Pokémon belongs to generation 7, who contains the newest Pokémons. This generation debuted in 2016."
+		resp = "This Pokémon belongs to generation 7, which contains the newest Pokémons. This generation debuted in 2016."
 	}else if id < 1 {
 		resp = "You have entered an invalid name or ID-number! Please try again. Everything between 1 and 802 are valid numbers."
 	}
