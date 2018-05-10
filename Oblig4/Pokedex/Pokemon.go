@@ -165,20 +165,20 @@ func Web(w http.ResponseWriter, r *http.Request) {
 func (f*Poke) getResp() {
 	id := f.ID
 	if id < 152 && id > 0 {
-		resp = "Dette er generasjon 1"
+		resp = "This Pokémon belongs to generation 1, which is also known as the color generation or the chromatic generation among older fans."
 	} else if id > 151 && id < 252 {
-		resp = "Dette er generasjon 2"
+		resp = "This Pokémon belongs to generation 2, which can also be referred to as the Gold & silver series or the metal generation."
 	} else if id > 251 && id < 387 {
-		resp = "Dette er generasjon 3"
+		resp = "This Pokémon belongs to generation 3, which is sometimes known as the advance or advanced generation."
 	} else if id > 386 && id < 494 {
-		resp = "Dette er generasjon 4"
+		resp = "This Pokémon belongs to generation 4. This generation focuses on one main region across three games; the Sinnoh region."
 	} else if id > 493 && id < 650 {
-		resp = "Dette er generasjon 5"
+		resp = "This Pokémon belongs to generation 5. This generation were released in Japan September 2010."
 	} else if id > 649 && id < 722 {
-		resp = "Dette er generasjon 6"
+		resp = "This Pokémon belongs to generation 6. This generation saw the debut of 72 new Pokémon species!"
 	} else if id > 722 && id < 803 {
-		resp = "Dette er generasjon 7"
+		resp = "This Pokémon belongs to generation 7, who contains the newest Pokénoms. This generation debuted in 2016."
 	}else if id < 1 {
-		resp = "Dette er et ugyldig navnet eller ID-nummer. Vær så snill å start programmet på nytt og skrev inn et gyldig navn eller IDnummer. Alt mellom 1-802 er en gyldig ID "
+		resp = "You have entered an invalid name or ID-number! Please try again. Everything between 1 and 802 are valid numbers."
 	}
 }
