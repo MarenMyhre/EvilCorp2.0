@@ -45,14 +45,15 @@
             -webkit-border-radius: 9px;
             -moz-border-radius: 9px;
             border-radius: 9px;
-            border: white solid 2px;
+            border: white solid 10px;
         }
 
         .bubble:after
         {
-            content: "Se det ja!";
+            content: "{{.Meldinger.Melding}}";
             position: center;
             font-family: sans-serif;
+            font-style: italic;
             border-style: solid;
             border-width: 13px 24px 13px 0;
             border-color: transparent #ffffff;
