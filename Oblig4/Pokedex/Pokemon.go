@@ -7,6 +7,7 @@ import (
 	"io/ioutil"
 	"encoding/json"
 	"path"
+
 )
 
 
@@ -40,7 +41,7 @@ type Poke struct {
 			BaseStat int `json:"base_stat"`
 		} `json:"stats"`
 	Name   string `json:"name"`
-	Weight int    `json:"weight"`
+	Weight int    `json:"weight"`  //prøv å gang/dele med høyde og vekt for å få mer normale målenheter
 	Moves []struct {
 			VersionGroupDetails []struct {
 				MoveLearnMethod struct {
@@ -105,11 +106,18 @@ type Poke struct {
 				Name string `json:"name"`
 			} `json:"type"`
 		} `json:"types"`
+	Meldinger struct{
+		Melding string `string:"Melding"`
+	}
 }
 
 var info Poke
-var Url = ""
+var url = ""
+var resp = ""
 
+func (f *Poke) setResp(response string) {
+	f.Meldinger.Melding = response
+}
 
 func Open(w http.ResponseWriter, r *http.Request){
 	fp := path.Join("Template", "Start.html")
@@ -123,9 +131,9 @@ func Open(w http.ResponseWriter, r *http.Request){
 
 func Web(w http.ResponseWriter, r *http.Request) {
 	nameID := r.FormValue("ID")
-	Url= "https://pokeapi.co/api/v2/pokemon/" + string(nameID)
+	url= "https://pokeapi.co/api/v2/pokemon/" + string(nameID)
 	nameID = ""
-	URL := string(Url)
+	URL := string(url)
 	res, err := http.Get(string(URL))
 	if err != nil {
 		log.Fatal(err)
@@ -139,6 +147,9 @@ func Web(w http.ResponseWriter, r *http.Request) {
 	if jsonErr != nil {
 		log.Fatal(jsonErr)
 	}
+	info.getResp()
+	info.setResp(resp)
+
 	fp2 := path.Join("Template", "Dex.html")
 	temp, err := template.ParseFiles(fp2)
 	if err != nil {
@@ -149,5 +160,25 @@ func Web(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatal(err)
 	}
+}
 
+func (f*Poke) getResp() {
+	id := f.ID
+	if id < 152 && id > 0 {
+		resp = "This Pokémon belongs to generation 1, which is also known as the color generation or the chromatic generation among older fans."
+	} else if id > 151 && id < 252 {
+		resp = "This Pokémon belongs to generation 2, which can also be referred to as the Gold & silver series or the metal generation."
+	} else if id > 251 && id < 387 {
+		resp = "This Pokémon belongs to generation 3, which is sometimes known as the advance or advanced generation."
+	} else if id > 386 && id < 494 {
+		resp = "This Pokémon belongs to generation 4. This generation focuses on one main region across three games; the Sinnoh region."
+	} else if id > 493 && id < 650 {
+		resp = "This Pokémon belongs to generation 5. This generation were released in Japan September 2010."
+	} else if id > 649 && id < 722 {
+		resp = "This Pokémon belongs to generation 6. This generation saw the debut of 72 new Pokémon species!"
+	} else if id > 722 && id < 803 {
+		resp = "This Pokémon belongs to generation 7, who contains the newest Pokénoms. This generation debuted in 2016."
+	}else if id < 1 {
+		resp = "You have entered an invalid name or ID-number! Please try again. Everything between 1 and 802 are valid numbers."
+	}
 }
