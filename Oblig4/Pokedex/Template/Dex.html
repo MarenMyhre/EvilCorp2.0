@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width-device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
+    <link rel="icon" href="{{.Sprites.FrontDefault}}">
     <title>{{.Name}}</title>
-    <!--CSS UI-->
+
+    <!--CSS UI start-->
     <style type="text/css">
+
         body {
             background-image: url("http://www.solidbackgrounds.com/images/5120x2880/5120x2880-light-sky-blue-solid-color-background.jpg");
             background-position: center center ;
@@ -101,14 +104,16 @@
 
 
 </head>
+<!--CSS UI slutt-->
 
+<!--HTML start-->
 <header>
     <div id="logo">
         <img src="https://fontmeme.com/permalink/180509/a6dd59a6e8f4e7c50fcde7db78bab361.png" alt="logo" >
     </div>
 </header>
 <body>
-<!--Informasjonen fra API, fordelt i tre blokker-->
+<!--Informasjonen fra API, fordelt i fire blokker-->
     <div class="container">
         <table id="block1">
             <tr>
@@ -182,7 +187,7 @@
 </div>
 
 <div class="prof">
-    <img src="https://vignette.wikia.nocookie.net/pokemon/images/8/84/Professor_Oak_XY.png/revision/latest?cb=20131221014829">
+    <img src="https://vignette.wikia.nocookie.net/pokemon/images/8/84/Professor_Oak_XY.png/revision/latest?cb=20131221014829" alt="Professor Oak">
     <div class="bubble">{{.Meldinger.Melding}}</div>
 </div>
 
