@@ -2,10 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
+    <meta name="viewport" content="width-device-width, initial-scale=1">
+    <title>{{.Name}}</title>
     <!--CSS UI-->
     <style type="text/css">
+        body {
+            background-image: url("http://www.solidbackgrounds.com/images/5120x2880/5120x2880-light-sky-blue-solid-color-background.jpg");
+            background-position: center center ;
+        }
 
+        #logo {
+            margin: 0 auto;
+            display: block;
+            width: 200px;
+        }
+        #logo img {
+            width: 100%;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
         #block1 {
             color: black;
             background-color: white;
@@ -34,45 +51,20 @@
             float: inside;
 
         }
-        div {
-            float: left;
-            margin-top: -250px;
-            margin-left: -240px;
+        .prof {
             position: fixed;
         }
-
-        .bubble
-        {
+        .bubble {
+            top: -350px;
+            left: 200px;
             position: relative;
-            margin-top: 270px;
-            margin-left: 40px;
-            width: 215px;
-            height: 100px;
-            padding: 0px;
+            width: 200px;
             background: #ffffff;
             -webkit-border-radius: 9px;
             -moz-border-radius: 9px;
             border-radius: 9px;
             border: white solid 10px;
         }
-
-        .bubble:after
-        {
-            content: "{{.Meldinger.Melding}}";
-            position: center;
-            font-family: sans-serif;
-            color: dimgray;
-            font-style: italic;
-            border-style: solid;
-            border-width: 13px 24px 13px 0;
-            border-color: transparent #ffffff;
-            display: contents;
-            width: 0;
-            z-index: 1;
-            left: -24px;
-            top: 62px;
-        }
-
         .bubble:before
         {
             content: '';
@@ -84,77 +76,83 @@
             width: 0;
             z-index: 0;
             left: -27px;
-            top: 61px;
+            top: -9px;
         }
-        </style>
-    <title>Title</title>
+    </style>
+
 
 </head>
 
-
 <body>
-
-<!--Bakgrunn-->
-<style>
-
-    body {
-        background-image: url("http://www.solidbackgrounds.com/images/5120x2880/5120x2880-light-sky-blue-solid-color-background.jpg");
-        background-position: center center ;
-    }
-</style>
-
-
-<!--Logo-->
-<meta name="viewport" content="width-device-width, initial-scale=1">
-<style>
-    img {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-</style>
-<img src="https://fontmeme.com/permalink/180509/a6dd59a6e8f4e7c50fcde7db78bab361.png" alt="logo" style="width:30%;">
-
+<div id="logo">
+    <img src="https://fontmeme.com/permalink/180509/a6dd59a6e8f4e7c50fcde7db78bab361.png" alt="logo" >
+</div>
 <!--Informasjonen fra API, fordelt i to blokker-->
-
+    <div class="container">
         <table id="block1">
-            <tr><th>ID:</th><td>{{.ID}}</td></tr>
-            <tr><th>Name:</th><td>{{.Name}}</td></tr>
+            <tr>
+                <th>ID:</th>
+                <td>{{.ID}}</td>
+            </tr>
+            <tr>
+                <th>Name:</th>
+                <td>{{.Name}}</td>
+            </tr>
             <tr><td></td></tr>
-            <tr><th>Types:</th></tr>
+            <tr>
+                <th>Types:</th>
+            </tr>
         {{range .Types}}
-            <tr><th>    -</th><td>{{.Type.Name}}</td></tr>
+            <tr>
+                <th>    -</th>
+                <td>{{.Type.Name}}</td>
+            </tr>
         {{end}}
-            <tr><th>Abilities:</th></tr>
+            <tr>
+                <th>Abilities:</th>
+            </tr>
         {{range .Abilities}}
-            <tr><th>    -</th><td>{{.Ability.Name}}</td></tr>
+            <tr>
+                <th>    -</th>
+                <td>{{.Ability.Name}}</td>
+            </tr>
         {{end}}
-            <tr><th>Weight:</th><td>{{.Weight}}hg</td></tr>
-            <tr><th>Height:</th><td>{{.Height}}dm</td></tr>
+            <tr>
+                <th>Weight:</th>
+                <td>{{.Weight}}hg</td>
+            </tr>
+            <tr>
+                <th>Height:</th>
+                <td>{{.Height}}dm</td>
+            </tr>
             <tr><td></td></tr>
         </table>
 
-<table id="block2">
-            <tr><th>Moves:</th></tr>
+    <table id="block2">
+            <tr>
+                <th>Moves:</th>
+            </tr>
         {{range .Moves}}
-            <tr><th>    -</th><td>{{.Move.Name}}</td></tr>
+            <tr>
+                <th>    -</th>
+                <td>{{.Move.Name}}</td>
+            </tr>
         {{end}}
 
         </table>
 
-<table id="block3">
-    <tr><th>{{.Name}}</th></tr>
-        <tr><th><img src="{{.Sprites.FrontDefault}}"></th> </tr>
-    <tr><th>{{.Name}} Shiny</th></tr>
-        <tr><th><img src="{{.Sprites.FrontShiny}}"></th></tr>
-</table>
-
-<div class="bubble" />
-
+    <table id="block3">
+        <tr><th>{{.Name}}</th></tr>
+            <tr><th><img src="{{.Sprites.FrontDefault}}"></th> </tr>
+        <tr><th>{{.Name}} Shiny</th></tr>
+            <tr><th><img src="{{.Sprites.FrontShiny}}"></th></tr>
+    </table>
+</div>
 <!--Bilde av Professor Oak-->
 
-<div>
-    <img src="https://vignette.wikia.nocookie.net/pokemon/images/8/84/Professor_Oak_XY.png/revision/latest?cb=20131221014829" alt="Mountain View">
+<div class="prof">
+    <img src="https://vignette.wikia.nocookie.net/pokemon/images/8/84/Professor_Oak_XY.png/revision/latest?cb=20131221014829">
+    <div class="bubble">{{.Meldinger.Melding}}</div>
 </div>
 
 </body>

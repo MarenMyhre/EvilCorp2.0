@@ -12,7 +12,7 @@ import (
 
 
 func main() {
-	http.HandleFunc("/1", Open)
+	http.HandleFunc("/", Open)
 	http.HandleFunc("/2", Web)
 	if err := http.ListenAndServe(":8080", nil); err != nil {
 		log.Fatal(err)
