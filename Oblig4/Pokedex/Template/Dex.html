@@ -87,7 +87,7 @@
 <div id="logo">
     <img src="https://fontmeme.com/permalink/180509/a6dd59a6e8f4e7c50fcde7db78bab361.png" alt="logo" >
 </div>
-<!--Informasjonen fra API, fordelt i to blokker-->
+<!--Informasjonen fra API, fordelt i tre blokker-->
     <div class="container">
         <table id="block1">
             <tr>
@@ -142,13 +142,24 @@
         </table>
 
     <table id="block3">
-        <tr><th>{{.Name}}</th></tr>
-            <tr><th><img src="{{.Sprites.FrontDefault}}"></th> </tr>
-        <tr><th>{{.Name}} Shiny</th></tr>
-            <tr><th><img src="{{.Sprites.FrontShiny}}"></th></tr>
+        <tr>
+            <th>{{.Name}}</th>
+        </tr>
+            <tr>
+                <th>
+                    <img src="{{.Sprites.FrontDefault}}">
+                </th>
+            </tr>
+        <tr>
+            <th>{{.Name}} Shiny</th>
+        </tr>
+            <tr>
+                <th>
+                    <img src="{{.Sprites.FrontShiny}}">
+                </th>
+            </tr>
     </table>
 </div>
-<!--Bilde av Professor Oak-->
 
 <div class="prof">
     <img src="https://vignette.wikia.nocookie.net/pokemon/images/8/84/Professor_Oak_XY.png/revision/latest?cb=20131221014829">
