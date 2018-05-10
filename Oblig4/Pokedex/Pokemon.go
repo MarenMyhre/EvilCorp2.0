@@ -7,6 +7,7 @@ import (
 	"io/ioutil"
 	"encoding/json"
 	"path"
+
 )
 
 
@@ -40,7 +41,7 @@ type Poke struct {
 			BaseStat int `json:"base_stat"`
 		} `json:"stats"`
 	Name   string `json:"name"`
-	Weight int    `json:"weight"`
+	Weight int    `json:"weight"`  //prøv å gang/dele med høyde og vekt for å få mer normale målenheter
 	Moves []struct {
 			VersionGroupDetails []struct {
 				MoveLearnMethod struct {
@@ -105,11 +106,18 @@ type Poke struct {
 				Name string `json:"name"`
 			} `json:"type"`
 		} `json:"types"`
+	Meldinger struct{
+		Melding string `string:"Melding"`
+	}
 }
 
 var info Poke
-var Url = ""
+var url = ""
+var resp = ""
 
+func (f *Poke) setResp(response string) {
+	f.Meldinger.Melding = response
+}
 
 func Open(w http.ResponseWriter, r *http.Request){
 	fp := path.Join("Template", "Start.html")
@@ -123,9 +131,9 @@ func Open(w http.ResponseWriter, r *http.Request){
 
 func Web(w http.ResponseWriter, r *http.Request) {
 	nameID := r.FormValue("ID")
-	Url= "https://pokeapi.co/api/v2/pokemon/" + string(nameID)
+	url= "https://pokeapi.co/api/v2/pokemon/" + string(nameID)
 	nameID = ""
-	URL := string(Url)
+	URL := string(url)
 	res, err := http.Get(string(URL))
 	if err != nil {
 		log.Fatal(err)
@@ -139,6 +147,9 @@ func Web(w http.ResponseWriter, r *http.Request) {
 	if jsonErr != nil {
 		log.Fatal(jsonErr)
 	}
+	info.getResp()
+	info.setResp(resp)
+
 	fp2 := path.Join("Template", "Dex.html")
 	temp, err := template.ParseFiles(fp2)
 	if err != nil {
@@ -151,3 +162,23 @@ func Web(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func (f*Poke) getResp() {
+	id := f.ID
+	if id < 152 && id > 0 {
+		resp = "Dette er generasjon 1"
+	} else if id > 151 && id < 252 {
+		resp = "Dette er generasjon 2"
+	} else if id > 251 && id < 387 {
+		resp = "Dette er generasjon 3"
+	} else if id > 386 && id < 494 {
+		resp = "Dette er generasjon 4"
+	} else if id > 493 && id < 650 {
+		resp = "Dette er generasjon 5"
+	} else if id > 649 && id < 722 {
+		resp = "Dette er generasjon 6"
+	} else if id > 722 && id < 803 {
+		resp = "Dette er generasjon 7"
+	}else if id < 1 {
+		resp = "Dette er et ugyldig navnet eller ID-nummer. Vær så snill å start programmet på nytt og skrev inn et gyldig navn eller IDnummer. Alt mellom 1-802 er en gyldig ID "
+	}
+}
