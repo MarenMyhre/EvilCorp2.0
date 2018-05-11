@@ -1,0 +1,28 @@
+I GoLang karakteriseres feilhåndtering med at en error blir sammenliknet med null (nil). 
+Dersom verdien som blir returnert er lik 0, vil det ikke være en error. 
+En verdi som er noe annet enn null indikerer at det finnes en error.
+
+Koden under viser hvordan en feilhåndtering kan se ut. 
+Det åpnes en fil, og dersom det finnes en error (altså en annen verdi enn 0), så vil filen lukkes.
+
+file, err := os.Open(path)
+if err != nil {
+   return nil, err
+}
+defer file.Close()
+
+Funksjonen under viser en litt annen form for feilhåndtering, som også vi få filen til å avslutte ved bruk av "panic". 
+Denne funksjonen kan man implementere andre steder i kildekoden, for å kontinuerlig sjekke etter feil. 
+
+func checkErr(e error) {
+	if e != nil {
+		panic(e)
+	}
+  
+Slik kan man implementere feilhåndteringen videre i kildekoden:
+
+func readResult(path string) {
+	data, err := ioutil.ReadFile(path)
+	checkErr(err)
+
+
