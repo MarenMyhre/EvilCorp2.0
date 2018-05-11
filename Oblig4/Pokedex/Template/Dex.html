@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width-device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
+    <link rel="icon" href="{{.Sprites.FrontDefault}}">
     <title>{{.Name}}</title>
-    <!--CSS UI-->
+
+    <!--CSS UI start-->
     <style type="text/css">
+
         body {
             background-image: url("http://www.solidbackgrounds.com/images/5120x2880/5120x2880-light-sky-blue-solid-color-background.jpg");
             background-position: center center ;
@@ -14,7 +18,7 @@
         #logo {
             margin: 0 auto;
             display: block;
-            width: 200px;
+            width: 400px;
         }
         #logo img {
             width: 100%;
@@ -25,8 +29,8 @@
         }
         #block1 {
             color: black;
-            background-color: white;
-            font-family: sans-serif;
+            background-color: rgba(255, 255, 255, 0.7);
+            font-family: 'Exo 2', sans-serif;
             font-size: 17px;
             border: 15px ridge tomato;
             border-radius: 15px;
@@ -35,26 +39,39 @@
             }
         #block2 {
             color: black;
-            background-color: white;
-            font-family:sans-serif;
+            background-color: rgba(255, 255, 255, 0.7);
+            font-family: 'Exo 2', sans-serif;
             font-size: 17px;
             border: 15px ridge tomato;
             border-radius: 15px;
             text-transform: capitalize;
-            float: right ;
+            float: right;
         }
         #block3 {
-            color: black;
-            font-family: sans-serif;
-            font-size: 17px;
-            text-transform: capitalize;
-            float: inside;
-
+            font-family: 'Exo 2', sans-serif;
+            float: left;
+            padding: 0;
+            font-weight: bolder;
+            font-size: large;
+            line-height: 0%;
+        }
+        #block4 {
+            font-family: 'Exo 2', sans-serif;
+            float: right;
+            padding: 0;
+            font-weight: bolder;
+            font-size: large;
+            line-height: 0%;
         }
         .prof {
             position: fixed;
+            top:  400px;
+            left: 350px;
         }
         .bubble {
+            font-family: 'Exo 2', sans-serif;
+            font-style: italic;
+            color: dimgray;
             top: -350px;
             left: 200px;
             position: relative;
@@ -78,16 +95,25 @@
             left: -27px;
             top: -9px;
         }
+
+        .pic{
+            width: 200px;
+            height: auto;
+        }
     </style>
 
 
 </head>
+<!--CSS UI slutt-->
 
+<!--HTML start-->
+<header>
+    <div id="logo">
+        <img src="https://fontmeme.com/permalink/180509/a6dd59a6e8f4e7c50fcde7db78bab361.png" alt="logo" >
+    </div>
+</header>
 <body>
-<div id="logo">
-    <img src="https://fontmeme.com/permalink/180509/a6dd59a6e8f4e7c50fcde7db78bab361.png" alt="logo" >
-</div>
-<!--Informasjonen fra API, fordelt i tre blokker-->
+<!--Informasjonen fra API, fordelt i fire blokker-->
     <div class="container">
         <table id="block1">
             <tr>
@@ -141,28 +167,27 @@
 
         </table>
 
-    <table id="block3">
-        <tr>
-            <th>{{.Name}}</th>
-        </tr>
+    <table id="block3" cellspacing="0px">
+
             <tr>
                 <th>
-                    <img src="{{.Sprites.FrontDefault}}">
+                    <img class="pic" src="{{.Sprites.FrontDefault}}">
                 </th>
             </tr>
-        <tr>
-            <th>{{.Name}} Shiny</th>
-        </tr>
+        <td align="center">Original</td>
+    </table>
+        <table id="block4">
             <tr>
                 <th>
-                    <img src="{{.Sprites.FrontShiny}}">
+                    <img class="pic" src="{{.Sprites.FrontShiny}}">
                 </th>
             </tr>
+            <td align="center">Shiny</td>
     </table>
 </div>
 
 <div class="prof">
-    <img src="https://vignette.wikia.nocookie.net/pokemon/images/8/84/Professor_Oak_XY.png/revision/latest?cb=20131221014829">
+    <img src="https://vignette.wikia.nocookie.net/pokemon/images/8/84/Professor_Oak_XY.png/revision/latest?cb=20131221014829" alt="Professor Oak">
     <div class="bubble">{{.Meldinger.Melding}}</div>
 </div>
 
