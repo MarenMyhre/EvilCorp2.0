@@ -3,6 +3,7 @@ package main
 import (
 	"os"
 	"testing"
+	"path"
 )
 
 func Exists(fil string) bool {
@@ -15,14 +16,16 @@ func Exists(fil string) bool {
 }
 
 func TestFil(t *testing.T){
-	r := Exists("Dex.html")
+	fp := path.Join("Template", "Start.html")
+	r := Exists(fp)
 	if r == false {
 		t.Error("File not found")
 	}
 }
 
 func TestFil2(t *testing.T){
-	r := Exists("Start.html")
+	fp1 := path.Join("Template", "Dex.html")
+	r := Exists(fp1)
 	if r == false {
 		t.Error("File not found")
 	}
