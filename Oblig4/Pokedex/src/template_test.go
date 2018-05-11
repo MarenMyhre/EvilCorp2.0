@@ -24,8 +24,8 @@ func TestFil(t *testing.T){
 }
 
 func TestFil2(t *testing.T){
-	fp1 := path.Join("Template", "Dex.html")
-	r := Exists(fp1)
+	fp2 := path.Join("Template", "Dex.html")
+	r := Exists(fp2)
 	if r == false {
 		t.Error("File not found")
 	}
