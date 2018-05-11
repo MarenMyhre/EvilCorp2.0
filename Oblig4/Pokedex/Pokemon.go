@@ -167,7 +167,7 @@ func (f*Poke) getResp() {
 	if id < 152 && id > 0 {
 		resp = "This Pokémon belongs to generation 1, which is also known as the color generation or the chromatic generation among older fans."
 	} else if id > 151 && id < 252 {
-		resp = "This Pokémon belongs to generation 2, which can also be referred to as the Gold & silver series or the metal generation."
+		resp = "This Pokémon belongs to generation 2, which can also be referred to as the Gold & Silver series or the metal generation."
 	} else if id > 251 && id < 387 {
 		resp = "This Pokémon belongs to generation 3, which is sometimes known as the advance or advanced generation."
 	} else if id > 386 && id < 494 {
@@ -177,7 +177,7 @@ func (f*Poke) getResp() {
 	} else if id > 649 && id < 722 {
 		resp = "This Pokémon belongs to generation 6. This generation saw the debut of 72 new Pokémon species!"
 	} else if id > 722 && id < 803 {
-		resp = "This Pokémon belongs to generation 7, who contains the newest Pokénoms. This generation debuted in 2016."
+		resp = "This Pokémon belongs to generation 7, who contains the newest Pokémons. This generation debuted in 2016."
 	}else if id < 1 {
 		resp = "You have entered an invalid name or ID-number! Please try again. Everything between 1 and 802 are valid numbers."
 	}
