@@ -1,8 +1,8 @@
-<b> Systemarkitektur </b>
+<h1> Systemarkitektur </h1>
 
 Programmet lytter til port :8080, og kjøres lokalt i en nettleser. Det blir hentet informasjon fra en databaseserver, basert på det brukeren ønsker å finne. 
 
-Kort introduksjon til programvaren:
+<b> Kort introduksjon til programvaren: </b>
 - Vi har en main funksjon som kobler programmet opp med port :8080, og kjører funksjonene “Open” og “Web” på forskjellige stier. 
 - Vi har en type som heter “Poke”, som lager en struct basert på API hentet fra nettet. 
 - Funksjonen “Open” får opp en nettside med inputfelt når du starter programmet, og scanner hva du skriver her. Vi kaller på HTML-filen “Start.html” i direktoratet “Template”. 
