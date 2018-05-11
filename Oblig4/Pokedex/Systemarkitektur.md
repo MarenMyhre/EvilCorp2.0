@@ -1,4 +1,4 @@
-*Systemarkitektur*
+_Systemarkitektur_
 
 Programmet lytter til port :8080, og kjøres lokalt i en nettleser. Det blir hentet informasjon fra en databaseserver, basert på det brukeren ønsker å finne. 
 
